@@ -4,10 +4,10 @@
 
 ###[URL of download zip] (https://www.nseindia.com/content/historical/DERIVATIVES/2017/JAN/fo02JAN2017bhav.csv.zip)
 
-My approach: 
-url1 = https://www.nseindia.com/content/historical/DERIVATIVES/2017/JAN/fo
-url2 = 02
-url3 = JAN2017bhav.csv.zip
+My approach: <br> 
+url1 = https://www.nseindia.com/content/historical/DERIVATIVES/2017/JAN/fo <br>
+url2 = 02 <br>
+url3 = JAN2017bhav.csv.zip <br>
 
 url2 = [1,..,31]
 
