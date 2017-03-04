@@ -12,7 +12,7 @@ do
 	url2="$month$year$name.csv.zip"
 	for i in {1..9}
 	do
-	   echo "Month $month, Day $i"
+	   echo "$month $i, 2016"
 	   url="$url1$i$url2"
 	   wget $url -q --user-agent="$useragent" --timeout=5
 	done
@@ -20,7 +20,7 @@ do
 	url2="$month$year$name.csv.zip"
 	for i in {10..31}
 	do
-	   echo "Month $month, Day $i"
+	   echo "$month $i, 2016"
 	   url="$url1$i$url2"
 	   wget $url -q --user-agent="$useragent" --timeout=5
 	done
@@ -33,7 +33,7 @@ url1="https://www.nseindia.com/content/historical/DERIVATIVES/$year/$month/fo0"
 url2="$month$year$name.csv.zip"
 for i in {1..9}
 do
-   echo "Month $month, Day $i"
+   echo "$month $i, 2017"
    url="$url1$i$url2"
    wget $url -q --user-agent="$useragent" --timeout=5
 done
@@ -41,7 +41,7 @@ url1="https://www.nseindia.com/content/historical/DERIVATIVES/$year/$month/fo"
 url2="$month$year$name.csv.zip"
 for i in {10..31}
 do
-   echo "Month $month, Day $i"
+   echo "$month $i, 2017"
    url="$url1$i$url2"
    wget $url -q --user-agent="$useragent" --timeout=5
 done
