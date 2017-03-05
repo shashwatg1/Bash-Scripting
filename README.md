@@ -53,7 +53,7 @@ IMPORTANT: Note there is no space on either side of the equals ( = ) sign.
 
 If we write variable = name, name is stored in variable. If we want to store more than 1 word, we need to use quotes. This is because under normal circumstances Bash uses a space to determine separate items.
 
-> varaible=Hello # for single word
+> varaible=Hello # for single word <br>
 > varaible="Hello World" # quotes needed for more than 1 word
 
 IMPORTANT: Single quotes will treat every character literally. Double quotes will allow you to do variabel substitution (that is include variables within the setting of the value).
