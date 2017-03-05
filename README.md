@@ -85,7 +85,8 @@ Exporting Variables. Variables are limited to the process they were created in. 
 ##3. Input - Different ways to supply data and directions to your Bash script.
 
 Ask the User for Input:
-> read var1 (reads from command line) # -p allows you to specify a prompt and -s makes the input silent. > ?> read a b c # allows for multiple inputs (3 here)
+> read var1 (reads from command line) # -p allows you to specify a prompt and -s makes the input silent. <br>
+> read a b c # allows for multiple inputs (3 here)
 
 Read will take your input and split it on whitespace. The first item will then be assigned to the first variable name, the second item to the second variable name and so on. If there are less items than variable names then the remaining variable names will be set to blank or null.
 
@@ -118,10 +119,10 @@ we don't need to escape the * sign. ++ or += operations dont have $ in the front
 
 ##5. If Statements - How to make decisions within your Bash script.
 
-> if [ <some test> ]
-> then
-> 	<commands>
-> fi
+> if [ \<some test\> ] <br>
+> then <br>
+> 	<commands> <br>
+> fi <br>
 
 The square brackets ( [ ] ) in the if statement above are actually a reference to the command test.
 
