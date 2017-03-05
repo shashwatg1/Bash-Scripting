@@ -195,24 +195,54 @@ Until the test becomes true, it will execute the commands within it.
 > done
 
 For each of the items in a given list, perform the given set of commands.
-> for var in <list>
+> for var in <list> / for range in {1..5}
 > do
 >	<commands>
 > done
 
+Select will take all the items in list (space separated) and present them on the screen with a number before each item.
+> select var in <list>
+> do
+> 	<commands>
+> done
 
+break and continue statements can be used in loops for better control.
 
 ###Summary
-
+* while, until, for, select loops
+* break and continue statements
 
 ##7. Functions - Reuse code to make life easier.
 
+To create a function:
+> function_name () { # or, function function_name {
+>	<commands>
+> }
+
+IMPORTANT: It is common to have arguments passed to the function listed inside the brackets (). In Bash they are there only for decoration and you never put anything inside them. <br>
+The function definition ( the actual function itself) must appear in the script before any calls to the function.
+
+We may send data to the function in a similar way to passing command line arguments to a script. We supply the arguments directly after the function name. Within the function they are accessible as $1, $2, etc.
+
+Bash functions don't allow us to return value for functions. They do however allow us to set a return status. return keyword is used to return status. The return status doesn't have to be hardcoded. It may be a variable. The variable $? contains the return status of the previously run command or function.
+
+Global and local variable concept is applied here aswell.
+> local var_name=<var_value>
+
+Overriding Commands: It is possible to name a function as the same name as a command you would normally use on the command line. This allows us to create a wrapper. eg. Maybe every time we call the command ls in our script, what we actually want is ls -lh. <br>
+When we have a function with the same name as a command, if we are inside that function, we need to put the keyword command in front of the the name when we want the command as opposed to the function as the function normally takes precedence.
 
 ###Summary
-
+* Function basics
+* () never has anything inside
+* command line arguments method is used to pass variables
+* functions must be defined before they are called anywhere
+* return status can be used. $? contains it
+* global and local variables
+* command keyword to refer to commands on terminal
 
 ##8. User Interface - Make your scripts user friendly.
 
+TPUT is a command which allows you to control the cursor on the terminal and the format of content that is printed. It is quite a powerful and complex tool.
 
-###Summary
-
+SED can easily allow us to accommodate many formats for input data.
