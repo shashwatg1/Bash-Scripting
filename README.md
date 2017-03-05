@@ -84,23 +84,122 @@ Exporting Variables. Variables are limited to the process they were created in. 
 
 ##3. Input - Different ways to supply data and directions to your Bash script.
 
+Ask the User for Input:
+> read var1 (reads from command line) # -p allows you to specify a prompt and -s makes the input silent. > ?> read a b c # allows for multiple inputs (3 here)
+
+Read will take your input and split it on whitespace. The first item will then be assigned to the first variable name, the second item to the second variable name and so on. If there are less items than variable names then the remaining variable names will be set to blank or null.
 
 ###Summary
-
+* read, STDIN, Command Line args are the three ways for user input.
+* read, read -p, read -s and their difference
+* Splitting happens accross the whitespace in the input
 
 ##4. Arithmetic - Perform various arithmetic operations in your Bash script.
 
+For any kind of arithematic expression, we could use it in the following way:
+> let <arithmetic expression> # The first part is generally always a variable which the result is saved into however.
+
+If we don't put quotes around the expression then it must be written with no spaces.
+
+> expr item1 operator item2 # formatting is very important here
+
+Same as let but doesnt save result in any variable. Spaces are important for evaluation. Quotes and lack of spaces are strings. * and a few more characters must have a '\' escape added.
+
+> $(( expression )) # For fomatting flexibility
+
+we don't need to escape the * sign. ++ or += operations dont have $ in the front.
+
+> ${#variable} # gives the length of the variable. Example 4953 prints 4
 
 ###Summary
-
+* let expression usage
+* expr usage
+* double parenthesis usage
 
 ##5. If Statements - How to make decisions within your Bash script.
 
+> if [ <some test> ]
+> then
+> 	<commands>
+> fi
+
+The square brackets ( [ ] ) in the if statement above are actually a reference to the command test.
+
+* ! EXPRESSION 				The EXPRESSION is false.
+* -n STRING 				The length of STRING is greater than zero.
+* -z STRING 				The lengh of STRING is zero (ie it is empty).
+* STRING1 = STRING2 		STRING1 is equal to STRING2
+* STRING1 != STRING2 		STRING1 is not equal to STRING2
+* INTEGER1 -eq INTEGER2 	INTEGER1 is numerically equal to INTEGER2
+* INTEGER1 -gt INTEGER2 	INTEGER1 is numerically greater than INTEGER2
+* INTEGER1 -lt INTEGER2 	INTEGER1 is numerically less than INTEGER2
+* -d FILE 					FILE exists and is a directory.
+* -e FILE 					FILE exists.
+* -r FILE 					FILE exists and the read permission is granted.
+* -s FILE 					FILE exists and it's size is greater than zero (ie. it is not empty).
+* -w FILE 					FILE exists and the write permission is granted.
+* -x FILE 					FILE exists and the execute permission is granted
+
+= is slightly different to -eq. [ 001 = 1 ] will return false as = does a string comparison (ie. character for character the same) whereas -eq does a numerical comparison meaning [ 001 -eq 1 ] will return true. <br>
+FILE actually means a path. May be absolute or relative. May refer to a file or a directory.
+
+ $? holds the exit status of the previously run command (in this case test). 0 means TRUE (or success). 1 = FALSE (or failure).
+
+> if [ <some test> ]
+> then
+>	<commands>
+> else
+> 	<other commands>
+> fi
+
+> if [ <some test> ]
+> then
+>	<commands>
+> elif [ <some test> ]
+> then
+> 	<different commands>
+> else
+> 	<other commands>
+> fi
+
+Boolean operators:
+* and - &&
+* or - || 
+
+> case <variable> in
+> <pattern 1>)
+> 	<commands>
+> 	;;
+> <pattern 2>)
+> 	<other commands>
+> 	;;
+> esac
 
 ###Summary
-
+* If, Elif, Else use and functioning
+* switch case use and functioning
+* *) represents the 'default' of switch case
 
 ##6. Loops - A variety of ways to perform repetitive tasks.
+
+While an expression is true, keep executing these lines of code.
+> while [ <some test> ]
+> do
+>	<commands>
+> done
+
+Until the test becomes true, it will execute the commands within it.
+> until [ <some test> ]
+> do
+>	<commands>
+> done
+
+For each of the items in a given list, perform the given set of commands.
+> for var in <list>
+> do
+>	<commands>
+> done
+
 
 
 ###Summary
