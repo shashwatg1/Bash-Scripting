@@ -121,8 +121,8 @@ we don't need to escape the * sign. ++ or += operations dont have $ in the front
 
 > if [ \<some test\> ] <br>
 > then <br>
-> 	<commands> <br>
-> fi <br>
+> 	\<commands\> <br>
+> fi
 
 The square brackets ( [ ] ) in the if statement above are actually a reference to the command test.
 
@@ -146,34 +146,34 @@ FILE actually means a path. May be absolute or relative. May refer to a file or 
 
  $? holds the exit status of the previously run command (in this case test). 0 means TRUE (or success). 1 = FALSE (or failure).
 
-> if [ <some test> ]
-> then
->	<commands>
-> else
-> 	<other commands>
+> if [ \<some test\> ] <br>
+> then <br>
+>	\<commands\> <br>
+> else <br>
+> 	\<other commands\> <br>
 > fi
 
-> if [ <some test> ]
-> then
->	<commands>
-> elif [ <some test> ]
-> then
-> 	<different commands>
-> else
-> 	<other commands>
+> if [ \<some test\> ] <br>
+> then <br>
+>	\<commands\> <br>
+> elif [ \<some test\> ] <br>
+> then <br>
+> 	\<different commands\> <br>
+> else <br>
+> 	\<other commands\> <br>
 > fi
 
 Boolean operators:
 * and - &&
 * or - || 
 
-> case <variable> in
-> <pattern 1>)
-> 	<commands>
-> 	;;
-> <pattern 2>)
-> 	<other commands>
-> 	;;
+> case \<variable\> in <br>
+> \<pattern 1\>) <br>
+> 	\<commands\> <br>
+> 	;; <br>
+> \<pattern 2\>) <br>
+> 	\<other commands\> <br>
+> 	;; <br>
 > esac
 
 ###Summary
@@ -184,27 +184,27 @@ Boolean operators:
 ##6. Loops - A variety of ways to perform repetitive tasks.
 
 While an expression is true, keep executing these lines of code.
-> while [ <some test> ]
-> do
->	<commands>
+> while [ \<some test\> ] <br>
+> do <br>
+>	\<commands\> <br>
 > done
 
 Until the test becomes true, it will execute the commands within it.
-> until [ <some test> ]
-> do
->	<commands>
-> done
+> until [ \<some tes\t> ] <br>
+> do <br>
+>	\<commands\> <br>
+> done 
 
 For each of the items in a given list, perform the given set of commands.
-> for var in <list> / for range in {1..5}
-> do
->	<commands>
+> for var in \<list\> / for range in {1..5} <br>
+> do <br>
+>	\<commands\> <br>
 > done
 
 Select will take all the items in list (space separated) and present them on the screen with a number before each item.
-> select var in <list>
-> do
-> 	<commands>
+> select var in \<list\> <br>
+> do <br>
+> 	\<commands\> <br>
 > done
 
 break and continue statements can be used in loops for better control.
@@ -216,8 +216,8 @@ break and continue statements can be used in loops for better control.
 ##7. Functions - Reuse code to make life easier.
 
 To create a function:
-> function_name () { # or, function function_name {
->	<commands>
+> function_name () { # or, function function_name { <br>
+>	\<commands\> <br>
 > }
 
 IMPORTANT: It is common to have arguments passed to the function listed inside the brackets (). In Bash they are there only for decoration and you never put anything inside them. <br>
@@ -228,7 +228,7 @@ We may send data to the function in a similar way to passing command line argume
 Bash functions don't allow us to return value for functions. They do however allow us to set a return status. return keyword is used to return status. The return status doesn't have to be hardcoded. It may be a variable. The variable $? contains the return status of the previously run command or function.
 
 Global and local variable concept is applied here aswell.
-> local var_name=<var_value>
+> local var_name=\<var_value\>
 
 Overriding Commands: It is possible to name a function as the same name as a command you would normally use on the command line. This allows us to create a wrapper. eg. Maybe every time we call the command ls in our script, what we actually want is ls -lh. <br>
 When we have a function with the same name as a command, if we are inside that function, we need to put the keyword command in front of the the name when we want the command as opposed to the function as the function normally takes precedence.
@@ -247,4 +247,3 @@ When we have a function with the same name as a command, if we are inside that f
 TPUT is a command which allows you to control the cursor on the terminal and the format of content that is printed. It is quite a powerful and complex tool.
 
 SED can easily allow us to accommodate many formats for input data.
-
