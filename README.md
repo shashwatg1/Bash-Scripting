@@ -59,16 +59,16 @@ If we write variable = name, name is stored in variable. If we want to store mor
 IMPORTANT: Single quotes will treat every character literally. Double quotes will allow you to do variabel substitution (that is include variables within the setting of the value).
 Example:
 > myvar='Hello World'
-> newvar="More $myvar"
-> echo $myvar #Hello World
-> echo $newvar #More Hello World
-> newvar='More $myvar'
-> echo $newvar #More $myvar
+> newvar="More \$myvar"
+> echo \$myvar #Hello World
+> echo \$newvar #More Hello World
+> newvar='More \$myvar'
+> echo \$newvar #More \$myvar
 
 IMPORTANT: We can store commands in variables with a $ sign in front
 Example:
-> myvar=$( ls )
-> echo $myvar # They are equivalent to writing ls but all the newlines are stripped out and the output is now all on a single line.
+> myvar=\$( ls )
+> echo \$myvar # They are equivalent to writing ls but all the newlines are stripped out and the output is now all on a single line.
 
 Exporting Variables. Variables are limited to the process they were created in. A script may run another script as one of its commands. If we want the variable to be available to the second script then we need to export the variable. Exporting is call by value.
 
@@ -97,7 +97,7 @@ Read will take your input and split it on whitespace. The first item will then b
 ##4. Arithmetic - Perform various arithmetic operations in your Bash script.
 
 For any kind of arithematic expression, we could use it in the following way:
-> let <arithmetic expression> # The first part is generally always a variable which the result is saved into however.
+> let \<arithmetic expression\> # The first part is generally always a variable which the result is saved into however.
 
 If we don't put quotes around the expression then it must be written with no spaces.
 
@@ -246,3 +246,4 @@ When we have a function with the same name as a command, if we are inside that f
 TPUT is a command which allows you to control the cursor on the terminal and the format of content that is printed. It is quite a powerful and complex tool.
 
 SED can easily allow us to accommodate many formats for input data.
+
