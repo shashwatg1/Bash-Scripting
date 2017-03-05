@@ -58,17 +58,17 @@ If we write variable = name, name is stored in variable. If we want to store mor
 
 IMPORTANT: Single quotes will treat every character literally. Double quotes will allow you to do variabel substitution (that is include variables within the setting of the value).
 Example:
-> myvar='Hello World'
-> newvar="More \$myvar"
-> echo \$myvar #Hello World
-> echo \$newvar #More Hello World
-> newvar='More \$myvar'
-> echo \$newvar #More \$myvar
+> myvar='Hello World' <br>
+> newvar="More $myvar" <br>
+> echo $myvar #Hello World <br>
+> echo $newvar #More Hello World <br>
+> newvar='More $myvar' <br>
+> echo $newvar #More $myvar
 
 IMPORTANT: We can store commands in variables with a $ sign in front
 Example:
-> myvar=\$( ls )
-> echo \$myvar # They are equivalent to writing ls but all the newlines are stripped out and the output is now all on a single line.
+> myvar=$( ls ) <br>
+> echo $myvar # They are equivalent to writing ls but all the newlines are stripped out and the output is now all on a single line
 
 Exporting Variables. Variables are limited to the process they were created in. A script may run another script as one of its commands. If we want the variable to be available to the second script then we need to export the variable. Exporting is call by value.
 
