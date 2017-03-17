@@ -1,8 +1,8 @@
-#Bash Scripting
+# Bash Scripting
 
-###[Course Link] (http://ryanstutorials.net/bash-scripting-tutorial/#structure)
+### [Course Link] (http://ryanstutorials.net/bash-scripting-tutorial/#structure)
 
-##1. What is a Bash Script - What are they, how do they work and how to run them.
+## 1. What is a Bash Script - What are they, how do they work and how to run them.
 
 A Bash script is a plain text file which contains a series of commands. These commands are a mixture of commands we would normally type ouselves on the command line (such as ls or cp for example) and commands we could type on the command line but generally wouldn't. An important point to remember though is:
 
@@ -23,13 +23,13 @@ IMPORTANT: #!/bin/bash. The hash exclamation mark ( #! ) character sequence is r
 
 > bash myscript.sh #This is also allowed
 
-###Summary
+### Summary
 * commands work exactly the same on the command line as they do within a script
 * #! refers the interpreter path and must be given as a good practice.
 * ./file.sh or /path/file.sh are used if file is not in the $PATH.
 * Formatting is important in bash. 
 
-##2. Variables - Store data temporarily for later use.
+## 2. Variables - Store data temporarily for later use.
 
 A variable is a temporary store for a piece of information. Variables may have their value set in a few different ways. The most common are to set the value directly and for its value to be set as the result of processing by a command or program.To read the variable we then place its name (preceded by a $ sign) anywhere in the script we would like. Before Bash interprets (or runs) every line of our script it first checks to see if any variable names are present. For every variable it has identified, it replaces the variable name with its value. Then it runs that line of code and begins the process again on the next line.
 
@@ -72,7 +72,7 @@ Example:
 
 Exporting Variables. Variables are limited to the process they were created in. A script may run another script as one of its commands. If we want the variable to be available to the second script then we need to export the variable. Exporting is call by value.
 
-###Summary
+### Summary
 * Bash is a case sensitive environment
 * When referring to or reading a variable we place a $ sign before the variable name.
 * When setting a variable we leave out the $ sign.
@@ -82,7 +82,7 @@ Exporting Variables. Variables are limited to the process they were created in. 
 * Exporting variables is call by value.
 * ./script.sh can be run from within another script.
 
-##3. Input - Different ways to supply data and directions to your Bash script.
+## 3. Input - Different ways to supply data and directions to your Bash script.
 
 Ask the User for Input:
 > read var1 (reads from command line) # -p allows you to specify a prompt and -s makes the input silent. <br>
@@ -90,12 +90,12 @@ Ask the User for Input:
 
 Read will take your input and split it on whitespace. The first item will then be assigned to the first variable name, the second item to the second variable name and so on. If there are less items than variable names then the remaining variable names will be set to blank or null.
 
-###Summary
+### Summary
 * read, STDIN, Command Line args are the three ways for user input.
 * read, read -p, read -s and their difference
 * Splitting happens accross the whitespace in the input
 
-##4. Arithmetic - Perform various arithmetic operations in your Bash script.
+## 4. Arithmetic - Perform various arithmetic operations in your Bash script.
 
 For any kind of arithematic expression, we could use it in the following way:
 > let \<arithmetic expression\> # The first part is generally always a variable which the result is saved into however.
@@ -112,12 +112,12 @@ we don't need to escape the * sign. ++ or += operations dont have $ in the front
 
 > ${#variable} # gives the length of the variable. Example 4953 prints 4
 
-###Summary
+### Summary
 * let expression usage
 * expr usage
 * double parenthesis usage
 
-##5. If Statements - How to make decisions within your Bash script.
+## 5. If Statements - How to make decisions within your Bash script.
 
 > if [ \<some test\> ] <br>
 > then <br>
@@ -176,12 +176,12 @@ Boolean operators:
 > 	;; <br>
 > esac
 
-###Summary
+### Summary
 * If, Elif, Else use and functioning
 * switch case use and functioning
 * *) represents the 'default' of switch case
 
-##6. Loops - A variety of ways to perform repetitive tasks.
+## 6. Loops - A variety of ways to perform repetitive tasks.
 
 While an expression is true, keep executing these lines of code.
 > while [ \<some test\> ] <br>
@@ -209,11 +209,11 @@ Select will take all the items in list (space separated) and present them on the
 
 break and continue statements can be used in loops for better control.
 
-###Summary
+### Summary
 * while, until, for, select loops
 * break and continue statements
 
-##7. Functions - Reuse code to make life easier.
+## 7. Functions - Reuse code to make life easier.
 
 To create a function:
 > function_name () { # or, function function_name { <br>
@@ -233,7 +233,7 @@ Global and local variable concept is applied here aswell.
 Overriding Commands: It is possible to name a function as the same name as a command you would normally use on the command line. This allows us to create a wrapper. eg. Maybe every time we call the command ls in our script, what we actually want is ls -lh. <br>
 When we have a function with the same name as a command, if we are inside that function, we need to put the keyword command in front of the the name when we want the command as opposed to the function as the function normally takes precedence.
 
-###Summary
+### Summary
 * Function basics
 * () never has anything inside
 * command line arguments method is used to pass variables
@@ -242,7 +242,7 @@ When we have a function with the same name as a command, if we are inside that f
 * global and local variables
 * command keyword to refer to commands on terminal
 
-##8. User Interface - Make your scripts user friendly.
+## 8. User Interface - Make your scripts user friendly.
 
 TPUT is a command which allows you to control the cursor on the terminal and the format of content that is printed. It is quite a powerful and complex tool.
 
